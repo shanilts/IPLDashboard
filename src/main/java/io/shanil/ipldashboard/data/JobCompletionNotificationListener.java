@@ -48,7 +48,7 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
                     .getResultList()
                     .stream()
                     .forEach(e -> {
-                        Team team = teamData.get((String) e[0]);
+                        Team team = teamData.get(e[0]);
                         team.setTotalMatches(team.getTotalMatches() + (long) e[1]);
                     });
 
@@ -56,7 +56,7 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
                     .getResultList()
                     .stream()
                     .forEach(e -> {
-                        Team team = teamData.get((String) e[0]);
+                        Team team = teamData.get(e[0]);
                         if (team != null) team.setTotalWins((long) e[1]);
                     });
 
