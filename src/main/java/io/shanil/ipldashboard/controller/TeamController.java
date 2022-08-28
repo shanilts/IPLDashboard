@@ -6,9 +6,7 @@ import io.shanil.ipldashboard.repository.MatchRepository;
 import io.shanil.ipldashboard.repository.TeamRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.DateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -36,6 +34,10 @@ public class TeamController {
         LocalDate endDate= LocalDate.of(year+1,1,1);
         return  matchRepository.getMatchByDate(teamName,startDate,endDate);
 
+    }
+    @GetMapping("/team")
+    public Iterable<Team> getAllTeam() {
+        return this.teamRepository.findAll();
     }
 
 }
